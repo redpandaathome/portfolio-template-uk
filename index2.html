@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <link rel="stylesheet" href="index2.css">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Yumi Lee</title>
-   <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="index2.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yumi Lee</title>
+    <script
       src="https://kit.fontawesome.com/3c175639ce.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap" rel="stylesheet">
+
     <!-- defer... -->
     <script src="main2.js" defer></script>
-</head>
-<body>
-   <section class="section__main">
-      <nav class="navbar">
-         <div class="navbar__logo">
-            <i class="fab fa-accusoft"></i>
-            <a href="#">Yumi</a>
-         </div>
-         <ul class="navbar__menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">My work</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contect</a></li>
-         </ul>
-         <a href="#" class="navbar__toggleBtn">
-            <i class="fas fa-bars"></i>
-         </a>
-      </nav>
-      <div class="main__content">
-         <div class="profile__image">
-            <img src="./img/rubber-duck.jpeg" alt="">
-         </div>
-         <span class="greeting">Hello,
-            I'm Yumi
-         </span>
-         <span class="role">
-            A Junior Software Engineer shortly arriving London, UK.
-         </span>
-         <button class="contact">CONTACT ME</button>
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <nav class="navbar">
+      <div class="navbar__logo">
+         <i class="fas fa-seedling"></i>
+        <a href="#">Yumi</a>
       </div>
-   </section>
-   
-</body>
+      <ul class="navbar__menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">My work</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <a href="#" class="navbar__toggleBtn">
+        <i class="fas fa-bars"></i>
+      </a>
+    </nav>
+
+    <!-- Home -->
+    <section class="section__main">
+      <div class="main__content">
+        <div class="profile__image">
+          <!-- <img src="./img/rubber-duck.jpeg" alt=""> -->
+        </div>
+        <div class="greeting">
+          <span>Hello,</span><br />
+          <span>I'm Yumi</span>
+        </div>
+
+        <span class="role">
+          A Junior Software Engineer shortly arriving London, UK.
+        </span>
+        <div class="contact__botton">
+          <button class="contact">CONTACT ME</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About me -->
+    <section class="section__about_me">
+      <div class="title">About me</div>
+      <div class="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris felis
+        sem, varius quis iaculis sit amet, mollis ut sem. Sed sit amet enim sit
+        amet enim pharetra congue quis nec odio. Vestibulum molestie tincidunt
+        neque, at dictum est elementum non. Integer sapien purus, convallis id
+        sem nec, eleifend elementum libero. Donec sapien tellus, tristique non
+        ex sed, tempus consequat arcu.
+      </div>
+    </section>
+
+    <!-- My work -->
+    <section class="section__my_work">
+      <div class="title">My work</div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section__contact">
+      <div class="title">Contact</div>
+      <ul class="icons">
+        <li class="github">
+          <a href="https://github.com/redpandaathome" target="_blank"><i class="fab fa-github-alt"></i></a>
+        </li>
+        <li class="linked-in"><i class="fab fa-linkedin"></i></li>
+        <li class="email tooltip"><i class="fas fa-envelope"><span class="tooltiptext">Click to copy!</span></i></li>
+          
+        
+      </ul>
+      <div class="copy-right">2022 Yumi Lee - All rights reserved</div>
+    </section>
+  </body>
 </html>

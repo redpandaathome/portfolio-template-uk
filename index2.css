@@ -3,12 +3,31 @@
    --dark-text-color: black;
    --point-background-color1:#00bcd4;
    --point-background-color2:#fff59d;
+   --point-background-color3:#efefef;
    --backgorund-color: white;
+
+   /* Size */
+   --padding: 32px;
+   --padding-small: 8px;
+
+   /* Font size */
+   --font-large: 68px;
+   --font-medium: 36px;
+   --font-small: 28px;
+   --font-micro: 18px;
+
+   /* Font weight */
+   --font-weight-light: 300;
+   --font-weight-medium: 500;
+   --font-weight-heavy: 900;
+
+   /* icon size */
+   --icon-size: 34px;
 }
 
 body {
    margin:0;
-   font-family: "Source Sans Pro";
+   font-family: "Roboto";
 }
 
 a {
@@ -16,6 +35,45 @@ a {
    color: var(--bright-text-color);
 }
 
+ul {
+   list-style: none;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+
+
+
+
+/* section */
+section {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding:3rem
+}
+
+section .title {
+   font-size: var(--font-large);
+   font-weight: var(--font-weight-heavy);
+   
+   /* font-weight: var(--font-weight-light); */
+
+   padding-bottom: var(--padding);
+}
+
+section .content {
+   font-size: var(--font-small);
+}
+
+
+
+
+/* section__main */
 .section__main {
    background-color: var(--point-background-color1);
    padding-bottom: 65px;
@@ -28,17 +86,131 @@ a {
    width: 100%;
 }
 
-.main__content .profile__image img {
+.main__content .profile__image  {
    width: 400px;
    height: 400px;
+   background-image: url('./img/rubber-duck.jpeg');
+   background-position: 50% 50%;
    position: relative;
    overflow: hidden;
    border-radius: 50%;
 }
 
 .main__content .greeting {
-   color :var(--bright-text-color)
+   text-align: center;
+   padding-top: var(--padding);
+
 }
+
+.main__content .greeting span {
+   color :var(--bright-text-color);
+   font-size: var(--font-large);
+   /* font-weight: heavy; */
+}
+
+.main__content .role {
+   padding-top: var(--padding);
+   color:var(--bright-text-color);
+   font-size: var(--font-medium);
+}
+
+.main__content .contact__botton {
+   padding-top: var(--padding);
+}
+
+
+
+
+
+
+
+/* section__my_work */
+.section__my_work {
+   background-color: var(--point-background-color2);
+}
+
+
+
+
+
+
+
+/* section__contact */
+.section__contact {
+   background-color: var(--point-background-color3);
+}
+
+.section__contact .email, .icons {
+   padding-bottom: var(--padding);
+   /* font-size: var(--font-medium); */
+}
+
+.section__contact .icons {
+   padding-bottom: var(--padding);
+   font-size: var(--font-large);
+}
+
+.section__contact .icons {
+   display: flex;
+}
+
+.section__contact .icons li {
+   padding: var(--padding-small);
+}
+
+a i {
+   color: var(--dark-text-color);
+}
+
+.section__contact .copy-right {
+   font-size: var(--font-small);
+}
+
+/* CSS Tooltip */
+/* email tooltip */
+.tooltip {
+   position: relative;
+   display: inline-block;
+   /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+   visibility: hidden;
+   width: 120px;
+   top: -5px;
+   left: 105%;
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   border-radius: 6px;
+   padding: 5px 0;
+   font-size: var(--font-small);
+
+   /* Position the tooltip */
+   position: absolute;
+   z-index: 1;
+}
+
+
+.tooltip:hover .tooltiptext {
+   visibility: visible;
+}
+   
+/*  tooltip left arrow */
+.tooltip .tooltiptext::after {
+   content: " ";
+   position: absolute;
+   top: 50%;
+   right: 100%; /* To the left of the tooltip */
+   margin-top: -5px;
+   border-width: 5px;
+   border-style: solid;
+   border-color: transparent black transparent transparent;
+   }
+
+
+
+/* navbar */
 .navbar {
    display: flex;
    justify-content: space-between;
@@ -48,7 +220,7 @@ a {
 }
 
 .navbar__logo {
-   font-size: 34px;
+   font-size: var(--icon-size);
    font-weight: bold;
    color: var(--bright-text-color);
 }
@@ -80,6 +252,12 @@ a {
    font-size: 32px;
    display: none;
 }
+
+
+
+
+
+
 
 @media screen and (max-width: 768px) {
    .navbar {
