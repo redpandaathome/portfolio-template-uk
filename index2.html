@@ -38,54 +38,47 @@
     </nav>
 
     <!-- Home -->
-    <section class="section__main">
-      <div class="main__content">
-        <div class="profile__image">
-          <!-- <img src="./img/rubber-duck.jpeg" alt=""> -->
-        </div>
-        <div class="greeting">
-          <span>Hello,</span><br />
-          <span>I'm Yumi</span>
-        </div>
-
-        <span class="role">
-          A Junior Software Engineer shortly arriving London, UK.
-        </span>
-        <div class="contact__botton">
-          <button class="contact">CONTACT ME</button>
-        </div>
-      </div>
+    <section id="home">
+       <div class="home__container">
+          <img src="img/rubber-duck.jpeg" alt="Yumi's profile photo" class="home__avatar">
+          <h1 class="home__title">
+             Hello, 
+             <br>
+             I'm Yumi
+          </h1>
+          <h2 class="home__description">A Junior Software Engineer shortly arriving London, UK.</h2>
+          <button class="home__contact">Contact Me</button>
+       </div>
     </section>
 
-    <!-- About me -->
-    <section class="section__about_me">
-      <div class="title">About me</div>
-      <div class="content">
+
+    <section id="about" class="section section__container">
+      <h1>About me</h1>
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris felis
         sem, varius quis iaculis sit amet, mollis ut sem. Sed sit amet enim sit
         amet enim pharetra congue quis nec odio. Vestibulum molestie tincidunt
         neque, at dictum est elementum non. Integer sapien purus, convallis id
         sem nec, eleifend elementum libero. Donec sapien tellus, tristique non
         ex sed, tempus consequat arcu.
-      </div>
+      </p>
     </section>
 
-    <!-- My work -->
-    <section class="section__my_work">
-       <div class="section__container">
-          <div class="title">My work</div>
-          <div class="sub-title">Projects</div>
+    <section id="work" class="section">
+      <div class="section__container">
+        <h1>My work</h1>
+        <h3>Projects</h3>
           <div class="work__categories">
              <button class="category__btn" data-filter="*">
-               "All"
+               All
                <span class="category__count">8</span>
              </button>
              <button class="category__btn" data-filter="back-end">
-               "Back-end"
+               Back-end
                <span class="category__count">5</span>
              </button>
              <button class="category__btn" data-filter="front-end">
-               "Front-end"
+               Front-end
                <span class="category__count">1</span>
              </button>
           </div>
@@ -99,23 +92,24 @@
              <div class="project" data-type="front-end"><img src="./img/project2.png" alt="links" class ="project__img"></div>
              <div class="project" data-type="front-end"><img src="./img/project2.png" alt="links" class ="project__img"></div>
           </div>
-
-       </div>
+      </div>
     </section>
+
 
     <!-- Contact -->
-    <section class="section__contact">
-      <div class="title">Contact</div>
-      <ul class="icons">
-        <li class="github">
-          <a href="https://github.com/redpandaathome" target="_blank"><i class="fab fa-github-alt"></i></a>
-        </li>
-        <li class="linked-in"><i class="fab fa-linkedin"></i></li>
-        <li class="email tooltip"><i class="fas fa-envelope"><span class="tooltiptext">Click to copy!</span></i></li>
-          
-        
-      </ul>
-      <div class="copy-right">2022 Yumi Lee - All rights reserved</div>
+    <section id="contact" class="section">
+      <h1 class="contact__title">Let's talk</h1>
+      <div class="contact__links">
+        <ul class="icons">
+          <li class="github">
+            <a href="https://github.com/redpandaathome" target="_blank"><i class="fab fa-github-alt"></i></a>
+          </li>
+          <li class="linked-in"><i class="fab fa-linkedin"></i></li>
+          <li class="email tooltip"><i class="fas fa-envelope"><span class="tooltiptext">Click to copy!</span></i></li>
+        </ul>
+        <div class="copy-right">2022 Yumi Lee - All rights reserved</div>
+      </div>
     </section>
+
   </body>
 </html>

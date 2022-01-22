@@ -1,15 +1,15 @@
 :root {
-   --bright-text-color: #f0f4f5;
+   --light-text-color: #f0f4f5;
    --dark-text-color: black;
-   --point-background-color1:#00bcd4;
-   --point-background-color2:#fff59d;
-   --point-background-color3:#efefef;
-   --backgorund-color: white;
+   --background-blue-color:#00bcd4;
+   --background-yellow-color:#fff59d;
+   --background-gray-color:#efefef;
+   --background-white-color: white;
 
    /* Size */
    --padding: 32px;
    --padding-small: 8px;
-   --margin-tiny: 2px;
+   --margin-tiny: 3px;
 
    /* Font size */
    --font-large: 68px;
@@ -51,94 +51,80 @@ ul {
 button {
    background-color: transparent;
    cursor: pointer;
+   border: none;
    outline: none;
+   padding: 0;
 }
 
-
-
-/* section */
+/* fix!! */
 section {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;;
-   padding:3rem
+   text-align: center;
+   margin: auto;
+   padding: 50px;
 }
 
-section .title {
-   font-size: var(--font-large);
-   font-weight: var(--font-weight-heavy);
-   
-   /* font-weight: var(--font-weight-light); */
-
-   padding-bottom: var(--padding);
+#home {
+   background-color: var(--background-blue-color);
+   text-align: center;
+   padding: 40px;
+   padding-top: 120px;
 }
 
-section .sub-title {
-   font-size: var(--font-medium);
-}
-
-section .content {
-   font-size: var(--font-small);
-}
-
-
-
-
-/* section__main */
-.section__main {
-   background-color: var(--point-background-color1);
-   padding-bottom: 65px;
-}
-
-.main__content {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 100%;
-}
-
-.main__content .profile__image  {
+.home__avatar {
    width: 400px;
    height: 400px;
-   background-image: url('./img/rubber-duck.jpeg');
    background-position: 50% 50%;
    position: relative;
    overflow: hidden;
    border-radius: 50%;
 }
 
-.main__content .greeting {
-   text-align: center;
-   padding-top: var(--padding);
-
-}
-
-.main__content .greeting span {
-   color :var(--bright-text-color);
+h1 {
+   color: var(--dark-text-color);
    font-size: var(--font-large);
-   /* font-weight: heavy; */
+   font-weight: var(--font-weight-heavy);
+   margin: 16px 0;
 }
 
-.main__content .role {
-   padding-top: var(--padding);
-   color:var(--bright-text-color);
+h2 {
+   color: var(--light-text-color);
    font-size: var(--font-medium);
 }
 
-.main__content .contact__botton {
-   padding-top: var(--padding);
+h3 {
+   color: var(--dark-text-color);
+   font-size: var(--font-medium);
+}
+
+.home__contact {
+   color: var(--background-white-color);
+   font-size: var(--font-medium);
+   font-weight: var(--font-weight-heavy);
+   margin: 24px;
+   padding: 8px 12px;
+   border: 2px solid var(--background-white-color);
+   border-radius: var(--size-border-radius);
 }
 
 
+.section__container {
+   max-width: 1200px;
+   margin: auto;
+}
 
+p {
+   color: var(--dark-text-color);
+   font-size: var(--font-medium);
+   font-weight: var(--font-weight-medium);
+   margin: 4px 0;
+}
 
 
 
 
 /* section__my_work */
-.section__my_work {
-   background-color: var(--point-background-color2);
+#work {
+   background-color: var(--background-yellow-color);
 }
 
 .work__categories {
@@ -148,29 +134,31 @@ section .content {
 .category__btn {
    padding: 8px 48px;
    font-size: var(--font-small);
-   border: 1px solid var(--backgorund-color);
+   border: 1px solid var(--background-white-color);
    border-radius: var(--size-border-radius);
 }
 
 .category__btn.selected, category__btn.hover {
-   background-color: var(--point-background-color1);
+   background-color: var(--background-white-color);
 }
 
 .work__projects {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   /* opacity: 1; */
 }
 
 .project {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    width: 280px;
    height: 250px;
    position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
    margin: var(--margin-tiny);
-   background-color: var(--point-background-color3);
+   background-color: var(--background-gray-color);
 }
 
 .project__img {
@@ -182,25 +170,19 @@ section .content {
 
 
 /* section__contact */
-.section__contact {
-   background-color: var(--point-background-color3);
+#contact {
+   background-color: var(--background-gray-color);
 }
 
-.section__contact .email, .icons {
-   padding-bottom: var(--padding);
-   /* font-size: var(--font-medium); */
-}
-
-.section__contact .icons {
-   padding-bottom: var(--padding);
-   font-size: var(--font-large);
-}
-
-.section__contact .icons {
+#contact .icons {
    display: flex;
+   justify-content: center;
+   padding-bottom: var(--padding);
+   font-size: var(--font-medium);
 }
 
-.section__contact .icons li {
+
+#contact .icons li {
    padding: var(--padding-small);
 }
 
@@ -208,7 +190,7 @@ a i {
    color: var(--dark-text-color);
 }
 
-.section__contact .copy-right {
+#contact .copy-right {
    font-size: var(--font-small);
 }
 
@@ -223,14 +205,16 @@ a i {
 .tooltip .tooltiptext {
    visibility: hidden;
    width: 120px;
-   top: -5px;
-   left: 105%;
+   /* top: -5px;
+   left: 105%; */
+   top: 13px;
+   margin-left:7px;
    background-color: black;
    color: #fff;
    text-align: center;
    border-radius: 6px;
    padding: 5px 0;
-   font-size: var(--font-small);
+   font-size: var(--font-micro);
 
    /* Position the tooltip */
    position: absolute;
@@ -261,7 +245,7 @@ a i {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   background-color: var(--point-background-color1);
+   background-color: var(--background-blue-color);
    padding: 8px 12px;
 }
 
