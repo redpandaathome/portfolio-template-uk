@@ -5,6 +5,7 @@
    --background-yellow-color:#fff59d;
    --background-gray-color:#efefef;
    --background-white-color: white;
+   --background-orange-color: #feb546;
 
    /* Size */
    --padding: 32px;
@@ -26,6 +27,9 @@
    --icon-size: 34px;
 
    --size-border-radius: 6px;
+
+   /* Animation */
+   --animation-duration: 300ms;
 }
 
 body {
@@ -82,24 +86,26 @@ section {
 h1 {
    color: var(--dark-text-color);
    font-size: var(--font-large);
-   font-weight: var(--font-weight-heavy);
+   font-weight: var(--font-weight-medium);
    margin: 16px 0;
 }
 
 h2 {
    color: var(--light-text-color);
    font-size: var(--font-medium);
+   font-weight: var(--font-weight-light);
 }
 
 h3 {
    color: var(--dark-text-color);
    font-size: var(--font-medium);
+   font-weight: var(--font-weight-light);
 }
 
 .home__contact {
    color: var(--background-white-color);
    font-size: var(--font-medium);
-   font-weight: var(--font-weight-heavy);
+   font-weight: var(--font-weight-light);
    margin: 24px;
    padding: 8px 12px;
    border: 2px solid var(--background-white-color);
@@ -136,17 +142,49 @@ p {
    font-size: var(--font-small);
    border: 1px solid var(--background-white-color);
    border-radius: var(--size-border-radius);
+   position: relative;
 }
 
-.category__btn.selected, category__btn.hover {
-   background-color: var(--background-white-color);
+.category__btn.selected,
+.category__btn:hover {
+   background-color: var(--background-blue-color);
+   color: var(--light-text-color);
 }
+
+.category__btn.selected .category__count,
+.category__btn:hover .category__count {
+   /* background-color: var(--background-white-color); */
+   opacity: 1;
+   top: 0;
+}
+
+
+.category__count {
+   position: absolute;
+   top: -20px;
+   right: 16px;
+   opacity: 0;
+
+   display: inline-block;
+   width: 24px;
+   height: 24px;
+   color: var(--background-white-color);
+   background-color: var(--background-orange-color);
+   line-height: 24px;
+   border-radius: 50%;
+}
+
 
 .work__projects {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   /* opacity: 1; */
+   opacity: 1;
+   transition: var(--animation-duration) ease-out;
+}
+
+.work__projects.anim-out {
+   transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -161,9 +199,17 @@ p {
    background-color: var(--background-gray-color);
 }
 
+.project.invisible {
+   display: none;
+}
+
 .project__img {
    max-width: 100%;
    max-height: 100%;
+}
+
+.work__categories. {
+
 }
 
 
