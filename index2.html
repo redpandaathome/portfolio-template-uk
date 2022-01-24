@@ -19,22 +19,22 @@
   </head>
   <body>
     <!-- Nav bar -->
-    <nav class="navbar">
+    <nav id="navbar">
       <div class="navbar__logo">
          <i class="fas fa-seedling"></i>
         <a href="#">Yumi</a>
       </div>
       <ul class="navbar__menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">My work</a></li>
-        <li><a href="#">Testimonials</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="navbar__menu__item" data-link="#home">Home</li>
+        <li class="navbar__menu__item" data-link="#about">About</li>
+        <li class="navbar__menu__item" data-link="#skills">Skills</li>
+        <li class="navbar__menu__item" data-link="#work">My work</li>
+        <li class="navbar__menu__item" data-link="#testimonials">Testimonials</li>
+        <li class="navbar__menu__item" data-link="#contact">Contact</li>
       </ul>
-      <a href="#" class="navbar__toggleBtn">
+      <button class="navbar__toggle-btn">
         <i class="fas fa-bars"></i>
-      </a>
+      </button>
     </nav>
 
     <!-- Home -->

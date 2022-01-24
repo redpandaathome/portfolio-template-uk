@@ -1,8 +1,43 @@
-const toggleBtn = document.querySelector('.navbar__toggleBtn');
-const menu = document.querySelector('.navbar__menu');
+'use strict';
 
-const linkedInBtn = document.querySelector('.linked-in');
-const emailBtn = document.querySelector('.email');
+// navbar
+const navbar = document.querySelector('#navbar');
+const navbarHeight = navbar.getBoundingClientRect().height;
+console.log(`"navbar.getBoundingClientRect()...`, navbar.getBoundingClientRect());
+
+// https://stackoverflow.com/questions/41576287/why-window-scrolly-element-getboundingclientrect-top-is-not-equal-to-element
+document.addEventListener('scroll', ()=>{
+   if(window.scrollY > navbarHeight){
+      navbar.classList.add('navbar--dark');
+   } else {
+      navbar.classList.remove('navbar--dark');
+   }
+});
+
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (e)=>{
+   const target = e.target;
+   const link = target.dataset.link; // data-link="#home"
+   if(link == null){
+      return;
+   }
+   console.log(`navbarMenu...class remove - open`, navbarMenu);
+   navbarMenu.classList.remove('open'); //????
+   console.log(`calling scrollIntoView...link - `,link );
+   scrollIntoView(link);
+})
+
+   // toggle hamburger bar
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', ()=>{
+   navbarMenu.classList.toggle('open');
+
+})
+
+// home contact!
+
+
+
 
 // projects
 const workBtnContainer = document.querySelector('.work__categories');
@@ -42,17 +77,16 @@ workBtnContainer.addEventListener('click', (e)=>{
 
 
 
-// NavBar - toggle hamburger bar
-toggleBtn.addEventListener('click', ()=>{
-   menu.classList.toggle('active');
-})
+// contact
+const linkedInBtn = document.querySelector('.linked-in');
+const emailBtn = document.querySelector('.email');
 
-// Section - Contact, linked-in not yet message
+   // Section - Contact, linked-in not yet message
 linkedInBtn.addEventListener('click', ()=>{
    alert("To be prepared soon..!")
 })
 
-// Section - Contact, email copy button
+   // Section - Contact, email copy button
 emailBtn.addEventListener('click', ()=> {
    const targetEmail = 'leeyumi415@gmail.com'
    navigator.clipboard.writeText(targetEmail)
@@ -63,3 +97,53 @@ emailBtn.addEventListener('click', ()=> {
       alert("Copying failed..!")
    })
 })
+
+
+// scrolling - menu sync
+const sectionIds = [
+   '#home',
+   '#about',
+   '#skills',
+   '#work',
+   '#testimonials',
+   '#contact',
+];
+
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.navbar__menu__item');
+
+let selectedNavIndex = getIdx();
+let selectedNavItem = navItems[selectedNavIndex];
+
+function selectNavItem(selected) {
+   selectedNavItem.classList.remove('active');
+   selectedNavItem = selected;
+   selectedNavItem.classList.add('active');
+}
+
+function scrollIntoView(selector) {
+   console.log(`function scrollIntoView selector..`,selector );
+   // selector like #home
+   // scrollTo - <li class="navbar__menu__item" data-link="#home"...>
+   const scrollTo = document.querySelector(selector);
+   console.log(`scrollTo...`, scrollTo);
+   // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+   scrollTo.scrollIntoView({behavior: "smooth"});
+
+}
+
+
+
+function getIdx(){
+   const section = document
+      .elementFromPoint(window.innerWidth /2, window.innerHeight * (2/3))
+      .closest('section');
+   // console.log(`inside getIdx - document...`, document.elementFromPoint(window.innerWidth /2, window.innerHeight * (2/3)));
+   // console.log(`closest... section?`, section);
+   const idx = sectionIds.indexOf(`#${section.id}`);
+   return idx;
+}
+
+// window.addEventListener('load', ()=>{
+//    selectNavItem(navItems[selectedNavIndex]);
+// })
