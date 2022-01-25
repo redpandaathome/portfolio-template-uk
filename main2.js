@@ -1,9 +1,8 @@
 'use strict';
 
-// navbar
+// sticky navbar
 const navbar = document.querySelector('#navbar');
 const navbarHeight = navbar.getBoundingClientRect().height;
-console.log(`"navbar.getBoundingClientRect()...`, navbar.getBoundingClientRect());
 
 // https://stackoverflow.com/questions/41576287/why-window-scrolly-element-getboundingclientrect-top-is-not-equal-to-element
 document.addEventListener('scroll', ()=>{
@@ -21,9 +20,7 @@ navbarMenu.addEventListener('click', (e)=>{
    if(link == null){
       return;
    }
-   console.log(`navbarMenu...class remove - open`, navbarMenu);
    navbarMenu.classList.remove('open'); //????
-   console.log(`calling scrollIntoView...link - `,link );
    scrollIntoView(link);
 })
 
@@ -103,9 +100,7 @@ emailBtn.addEventListener('click', ()=> {
 const sectionIds = [
    '#home',
    '#about',
-   '#skills',
    '#work',
-   '#testimonials',
    '#contact',
 ];
 
@@ -133,6 +128,50 @@ function scrollIntoView(selector) {
 }
 
 
+// start
+const observerOption = {
+   root: null,
+   rootMargin: '0px',
+   threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+   entries.forEach((entry)=>{
+      // console.log(`entry.target`, entry.target );
+      // console.log(`1.entry.isIntersecting:`, entry.isIntersecting );
+      // console.log(`2.entry.intersectionRatio:`, entry.intersectionRatio);
+      if (!entry.isIntersecting && entry.intersectionRatio > 0 ) {
+         // console.log(`ohhhh`);
+         const index = sectionIds.indexOf(`#${entry.target.id}`);
+         if (entry.boundingClientRect.y < 0 ){
+            // console.log(`entry.boudingClientRect.y<0...`, entry.boundingClientRect.y);
+            selectedNavIndex = index + 1;
+            // console.log(`new +index...`, index+1);
+         } else {
+            // console.log(`entry.boundingClientRect.y>=0...`, entry.boundingClientRect.y);
+            
+            selectedNavIndex = index -1;
+            // console.log(`new -index...`, index-1);
+
+         }
+      }
+
+   })
+}
+
+const observer = new IntersectionObserver(observerCallback, observerOption);
+sections.forEach((section)=> observer.observe(section));
+// end
+
+window.addEventListener('scroll', ()=>{
+   if (window.scrollY ===0) {
+      selectedNavIndex = 0;
+   } else if(
+      Math.round(window.scrollY + window.innerHeight) >= document.body.clientHeight){
+         selectedNavIndex = navItems.length-1;
+      }
+   selectNavItem(navItems[selectedNavIndex]);
+})
 
 function getIdx(){
    const section = document
@@ -144,6 +183,10 @@ function getIdx(){
    return idx;
 }
 
-// window.addEventListener('load', ()=>{
-//    selectNavItem(navItems[selectedNavIndex]);
-// })
+window.addEventListener('load', ()=>{
+   selectNavItem(navItems[selectedNavIndex]);
+})
+//0 home
+//1 about
+//2 work
+//3 contact
