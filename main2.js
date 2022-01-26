@@ -42,7 +42,6 @@ const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 workBtnContainer.addEventListener('click', (e)=>{
    const filter = e.target.dataset.filter || e.currentTarget.parentNode.dataset.filter;
-   // console.log(`filter...`, filter); // : data-filter => backend
    if(filter == null){
       return;
    }
@@ -50,16 +49,12 @@ workBtnContainer.addEventListener('click', (e)=>{
    const active = document.querySelector('.category__btn.selected');
    active.classList.remove('selected');
    
-   // console.log(`e.target...`, e.target); //selected tag... <button class=~ ></button>
-   // console.log(`e.target.nodeName:`, e.target.nodeName); //BUTTON
    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
    target.classList.add('selected');
    projectContainer.classList.add('anim-out');
 
    setTimeout(()=>{
       projects.forEach((project)=>{
-         // category btn... data-filter = "back-end"
-         // project... data-type = "back-end"
          if (filter === '*' || filter === project.dataset.type) { 
             project.classList.remove('invisible');
          } else {
@@ -117,9 +112,6 @@ function selectNavItem(selected) {
 }
 
 function scrollIntoView(selector) {
-   console.log(`function scrollIntoView selector..`,selector );
-   // selector like #home
-   // scrollTo - <li class="navbar__menu__item" data-link="#home"...>
    const scrollTo = document.querySelector(selector);
    console.log(`scrollTo...`, scrollTo);
    // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
@@ -128,34 +120,28 @@ function scrollIntoView(selector) {
 }
 
 
-// start
+// intersection observer start - to check if the target element is exposed on the screen
+// below code is for checking section 1~2's exposure (total 0,1,2,3) to make corresponding menu__bar__item active
+// https://pks2974.medium.com/intersection-observer-%EA%B0%84%EB%8B%A8-%EC%A0%95%EB%A6%AC%ED%95%98%EA%B8%B0-fc24789799a3
+// https://heropy.blog/2019/10/27/intersection-observer/
 const observerOption = {
    root: null,
    rootMargin: '0px',
    threshold: 0.3,
 };
 
+//changing selectedNavIndex by scrolling
 const observerCallback = (entries, observer) => {
    entries.forEach((entry)=>{
-      // console.log(`entry.target`, entry.target );
-      // console.log(`1.entry.isIntersecting:`, entry.isIntersecting );
-      // console.log(`2.entry.intersectionRatio:`, entry.intersectionRatio);
       if (!entry.isIntersecting && entry.intersectionRatio > 0 ) {
-         // console.log(`ohhhh`);
          const index = sectionIds.indexOf(`#${entry.target.id}`);
          if (entry.boundingClientRect.y < 0 ){
-            // console.log(`entry.boudingClientRect.y<0...`, entry.boundingClientRect.y);
             selectedNavIndex = index + 1;
-            // console.log(`new +index...`, index+1);
          } else {
-            // console.log(`entry.boundingClientRect.y>=0...`, entry.boundingClientRect.y);
-            
             selectedNavIndex = index -1;
-            // console.log(`new -index...`, index-1);
 
          }
       }
-
    })
 }
 
@@ -177,8 +163,6 @@ function getIdx(){
    const section = document
       .elementFromPoint(window.innerWidth /2, window.innerHeight * (2/3))
       .closest('section');
-   // console.log(`inside getIdx - document...`, document.elementFromPoint(window.innerWidth /2, window.innerHeight * (2/3)));
-   // console.log(`closest... section?`, section);
    const idx = sectionIds.indexOf(`#${section.id}`);
    return idx;
 }
