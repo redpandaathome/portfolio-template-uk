@@ -76,12 +76,16 @@ section {
 }
 
 .home__avatar {
-   width: 400px;
-   height: 400px;
+   width: 250px;
+   height: 250px;
    background-position: 50% 50%;
    position: relative;
    overflow: hidden;
    border-radius: 50%;
+}
+
+.home__description, .home__title {
+   color: var(--background-white-color);
 }
 
 h1 {
