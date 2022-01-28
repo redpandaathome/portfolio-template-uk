@@ -24,6 +24,13 @@ navbarMenu.addEventListener('click', (e)=>{
    scrollIntoView(link);
 })
 
+// Make 'home' slowly fade in to transtearetn as the window bar scrolls down
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', ()=> {
+   home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
    // toggle hamburger bar
 const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
 navbarToggleBtn.addEventListener('click', ()=>{
