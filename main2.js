@@ -32,7 +32,10 @@ navbarToggleBtn.addEventListener('click', ()=>{
 })
 
 // home contact!
-
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', ()=>{
+   scrollIntoView('#contact');
+})
 
 
 
