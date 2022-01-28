@@ -184,3 +184,18 @@ window.addEventListener('load', ()=>{
 //1 about
 //2 work
 //3 contact
+
+
+// Show arrow-up button
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', ()=>{
+   if(window.scrollY > window.innerHeight/2){
+      arrowUp.classList.add('visible');
+   } else {
+      arrowUp.classList.remove('visible');
+   }
+})
+
+arrowUp.addEventListener('click', ()=>{
+   scrollIntoView('#home');
+})
