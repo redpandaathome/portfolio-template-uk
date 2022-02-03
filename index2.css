@@ -145,7 +145,7 @@ p {
 .category__btn {
    padding: 8px 48px;
    font-size: var(--font-small);
-   border: 1px solid var(--background-white-color);
+   border: 3px solid var(--background-white-color);
    border-radius: var(--size-border-radius);
    position: relative;
 }
@@ -229,7 +229,7 @@ p {
    display: flex;
    justify-content: center;
    padding-bottom: var(--padding);
-   font-size: var(--font-medium);
+   font-size: var(--font-large);
 }
 
 
