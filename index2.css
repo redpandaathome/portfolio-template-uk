@@ -76,12 +76,18 @@ section {
 }
 
 .home__avatar {
+   margin: 0 auto;
    width: 250px;
    height: 250px;
    background-position: 50% 50%;
    position: relative;
    overflow: hidden;
    border-radius: 50%;
+}
+
+.home__avatar_img {
+   margin-left: -65px;
+   width: 400px;
 }
 
 .home__description, .home__title {
