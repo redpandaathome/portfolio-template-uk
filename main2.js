@@ -80,13 +80,8 @@ workBtnContainer.addEventListener('click', (e)=>{
 
 
 // contact
-const linkedInBtn = document.querySelector('.linked-in');
+// const linkedInBtn = document.querySelector('.linked-in');
 const emailBtn = document.querySelector('.email');
-
-   // Section - Contact, linked-in not yet message
-linkedInBtn.addEventListener('click', ()=>{
-   alert("To be prepared soon..!")
-})
 
    // Section - Contact, email copy button
 emailBtn.addEventListener('click', ()=> {
